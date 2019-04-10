@@ -23,7 +23,7 @@
       </span>
     </div>
 
-    <div class="form-group">
+    <div class="container">
       <label>Price</label>
       <input type="number" class="form-control" name="price" required [(ngModel="car.price")] #carPrice ="ngModel">
       <span class="help-block danger" *ngIf="carPrice.errors?.required && carPrice.touched">

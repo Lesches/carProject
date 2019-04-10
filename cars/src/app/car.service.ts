@@ -31,4 +31,14 @@ export class CarService {
     // return an observable with a user friendly message
     return throwError('Error! something went wrong.');
   }
+
+  store(car:Car): Observable<Car[]>{
+    return this.http.post(`${this.baseUrl}/store`, {data: car})
+      .pipe(map((res) => {
+        this.cars.push(res['data']);
+        return this.cars;
+      }),
+      catchError(this.handleError));
+
+  }
 }
